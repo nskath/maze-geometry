@@ -1,0 +1,89 @@
+body {
+    margin: 0;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f4f4f9;
+    color: #333;
+}
+
+h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(7, 50px);
+    gap: 0;
+}
+
+.cell {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    box-sizing: border-box;
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+
+.wall {
+    position: absolute;
+    background-color: #bbb;
+    cursor: pointer;
+    z-index: 10;
+    opacity: 0.4;
+    transition: background-color 0.3s, opacity 0.3s;
+    border-radius: 2px;
+}
+
+.wall.N, .wall.S {
+    left: 0; right: 0; height: 4px;
+}
+.wall.E, .wall.W {
+    top: 0; bottom: 0; width: 4px;
+}
+.wall.N { top: -2px; }
+.wall.E { right: -2px; }
+.wall.S { bottom: -2px; }
+.wall.W { left: -2px; }
+
+.wall.active {
+    background-color: #222;
+    opacity: 1;
+}
+
+button {
+    margin-top: 20px;
+    padding: 12px 24px;
+    font-size: 16px;
+    background-color: #0066cc;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+button:hover {
+    background-color: #005bb5;
+}
+
+pre#output {
+    margin-top: 20px;
+    padding: 10px;
+    background: #eaeaea;
+    border-radius: 5px;
+    font-family: 'Courier New', Courier, monospace;
+    width: 80%;
+    text-align: center;
+}
+
+.cell:hover {
+    outline: 2px solid #0066cc;
+    outline-offset: -1px;
+    box-shadow: 0 0 8px rgba(0, 102, 204, 0.3);
+    transition: outline 0.1s, box-shadow 0.1s;
+}
